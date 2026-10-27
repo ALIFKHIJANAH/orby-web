@@ -6,3 +6,9 @@ compatibility_date = "2026-10-01"
 [[r2_buckets]]
 binding = "RELEASES"
 bucket_name = "orby-releases"
+
+# One row per /download, for counting. Schema in migrations/.
+[[d1_databases]]
+binding = "DB"
+database_name = "orby"
+database_id = "b14b6406-ebc2-4fa0-bbb9-5f14287ed74f"

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "downloads": "npx wrangler d1 execute orby --remote --command \"SELECT file, COUNT(*) AS downloads FROM downloads GROUP BY file UNION ALL SELECT 'total', COUNT(*) FROM downloads\""
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",

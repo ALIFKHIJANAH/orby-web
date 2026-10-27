@@ -4,11 +4,21 @@ const LATEST = 'Orby-latest.dmg'
 
 interface Env {
   RELEASES: R2Bucket
+  DB: D1Database
 }
 
-export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
+export const onRequestGet: PagesFunction<Env> = async ({ env, request, waitUntil }) => {
   const file = await env.RELEASES.get(LATEST)
   if (!file) return new Response('Not found', { status: 404 })
+
+  // Counted after the response starts, and a failed insert never breaks the download.
+  const name = file.httpMetadata?.contentDisposition?.match(/filename="?([^";]+)/)?.[1] ?? LATEST
+  waitUntil(
+    env.DB.prepare('INSERT INTO downloads (file, country) VALUES (?, ?)')
+      .bind(name, request.cf?.country ?? null)
+      .run()
+      .catch(() => {}),
+  )
 
   const headers = new Headers()
   file.writeHttpMetadata(headers)

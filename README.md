@@ -28,6 +28,10 @@ uploads the DMG there (via `scripts/publish-download.sh`).
 
 `/download` only exists on Cloudflare; `npm run dev` serves the SPA there instead.
 
+Each download adds a row (time, versioned file name, country; no IP or user agent) to the D1
+database `orby` (binding `DB`). `npm run downloads` prints the count per version and the total.
+Schema changes go in `migrations/` and are applied with `npx wrangler d1 migrations apply orby --remote`.
+
 ## How it's put together
 
 - **`src/orb/`** is the mascot. `pose.ts` is a line-for-line port of `OrbPose` in
