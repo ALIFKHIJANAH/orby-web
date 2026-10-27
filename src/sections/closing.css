@@ -1,0 +1,82 @@
+.final {
+  position: relative;
+  padding: 0 0 clamp(96px, 12vw, 160px);
+  border-top: 1px solid var(--stroke);
+  text-align: center;
+}
+.final-notch {
+  width: 220px;
+  margin: -1px auto 0;
+  overflow: hidden;
+  --notch-r: 30px;
+}
+.final-orb {
+  display: grid;
+  place-items: center;
+  padding: 56px 0 30px;
+}
+.final-copy {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  margin-top: 56px;
+}
+.final-copy .hero-ctas {
+  margin: 0;
+}
+
+.footer {
+  background: #000;
+  padding: 64px 0 28px;
+  font-size: 14px;
+}
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+.footer-brand {
+  display: grid;
+  gap: 10px;
+}
+.footer-brand p {
+  margin: 0;
+}
+.footer-links {
+  display: flex;
+  gap: 72px;
+}
+.footer-links div {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.footer-links p {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.footer-links a {
+  color: var(--text-2);
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--text);
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 22px;
+  border-top: 1px solid var(--stroke);
+  color: var(--text-3);
+  font-size: 13px;
+}
+.footer-orb {
+  display: grid;
+}

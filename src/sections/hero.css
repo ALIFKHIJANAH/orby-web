@@ -1,0 +1,254 @@
+.hero {
+  position: relative;
+  height: 460vh;
+}
+.hero-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.hero-notch {
+  position: absolute;
+  top: var(--nav-h);
+  left: 50%;
+  margin-left: 0;
+  translate: -50% 0;
+  z-index: 3;
+  overflow: hidden;
+  --notch-r: 34px;
+  --flare: 12px;
+}
+.hero-notch-inner {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 34px 18px 18px;
+}
+.hero-orb {
+  display: grid;
+  place-items: center;
+  padding: 6px 0 4px;
+}
+.hero-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #141414;
+  color: #c7c7c7;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+.hero-status-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.hero-status-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: currentColor;
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+.hero-card {
+  width: 100%;
+}
+
+.hero-intro {
+  position: absolute;
+  inset: calc(var(--nav-h) + 300px) 0 auto;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 22px;
+}
+.hero-intro .lede {
+  max-width: 30em;
+}
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.hero-meta {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.hero-beat {
+  position: absolute;
+  inset: auto 0 128px;
+  text-align: center;
+  pointer-events: none;
+}
+.hero-beat {
+  transition: opacity 0.3s;
+}
+/* Below this height the open approval card reaches down over the title; the card and the rail
+   already say "Needs you". */
+@media (max-height: 760px) {
+  [data-beat='needs'] .hero-beat {
+    opacity: 0;
+  }
+}
+.hero-beat .lede {
+  margin: 14px auto 0;
+}
+.hero-beat-title {
+  font-size: clamp(48px, 8vw, 112px);
+}
+
+.hero-hint {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--text-3);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hero-hint-line {
+  width: 1px;
+  height: 36px;
+  background: var(--text-3);
+}
+
+.hero-rail {
+  position: absolute;
+  inset: auto 0 40px;
+  display: grid;
+  gap: 14px;
+}
+.hero-rail-track {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--stroke);
+  overflow: hidden;
+}
+.hero-rail-fill {
+  display: block;
+  height: 100%;
+  background: var(--text);
+  transform-origin: 0 50%;
+}
+.hero-rail ol {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-3);
+}
+.hero-rail li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+.hero-rail li span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+.hero-rail li.on {
+  color: var(--text);
+}
+.hero-rail li.on span {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: 420vh;
+  }
+  .hero-intro {
+    inset: calc(var(--nav-h) + 236px) 0 auto;
+    gap: 16px;
+  }
+  .hero-notch-inner {
+    padding-top: 26px;
+  }
+  .hero-beat {
+    bottom: 104px;
+  }
+  .hero-rail ol {
+    font-size: 11px;
+  }
+  /* Both buttons on one row: a phone visitor still sees "macOS 14 or later" right below. */
+  .hero-ctas {
+    gap: 8px;
+    margin-top: 2px;
+  }
+  .hero-ctas .btn {
+    height: 44px;
+    padding: 0 18px;
+    font-size: 14px;
+    gap: 8px;
+  }
+  .hero-cta-long {
+    display: none;
+  }
+  .hero-hint {
+    margin-top: 4px;
+  }
+  .hero-hint-line {
+    height: 24px;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 641px) {
+  .hero-intro {
+    inset: calc(var(--nav-h) + 270px) 0 auto;
+    gap: 16px;
+  }
+  .hero-intro .h1 {
+    font-size: clamp(44px, 7vw, 84px);
+  }
+}
+
+/* Short screens (an iPhone SE with Safari's bars, a small laptop window): Hero.tsx shrinks the
+   orb to match (SHORT), the notch tightens, and the intro moves up under it. */
+@media (max-height: 620px), (min-width: 641px) and (max-height: 720px) {
+  .hero-notch-inner {
+    gap: 12px;
+    padding: 18px 18px 14px;
+  }
+  .hero-intro {
+    inset: calc(var(--nav-h) + 206px) 0 auto;
+    gap: 14px;
+  }
+  .hero-intro .h1 {
+    font-size: clamp(40px, 6vw, 72px);
+  }
+}
+@media (max-height: 620px) and (max-width: 640px) {
+  .hero-intro {
+    inset: calc(var(--nav-h) + 176px) 0 auto;
+    gap: 12px;
+  }
+}

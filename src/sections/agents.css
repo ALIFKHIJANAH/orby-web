@@ -1,0 +1,83 @@
+.agents-row {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 clamp(72px, 10vw, 128px);
+  padding: 0;
+}
+.agent {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 44px 4px 36px;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  transition: background 0.3s;
+}
+.agent:hover,
+.agent.hot {
+  background: var(--card);
+}
+.agent-orb {
+  position: relative;
+  display: grid;
+}
+.agent-badge {
+  position: absolute;
+  left: -6%;
+  top: -6%;
+  display: grid;
+}
+.agent-name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.agent-tool {
+  position: absolute;
+  bottom: 12px;
+  font-size: 11px;
+  color: var(--working);
+}
+
+.jump {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+}
+.jump-shot .shot {
+  border: 1px solid var(--stroke);
+}
+.jump-copy {
+  display: grid;
+  gap: 16px;
+}
+.jump-title {
+  font-size: clamp(32px, 3.4vw, 44px);
+}
+.jump-list {
+  margin: 8px 0 0;
+  color: var(--text-3);
+  line-height: 1.9;
+}
+
+@media (max-width: 860px) {
+  .agents-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .agent {
+    padding: 28px 2px 30px;
+  }
+  .agent-name {
+    font-size: 12px;
+    text-align: center;
+  }
+  .jump {
+    grid-template-columns: 1fr;
+  }
+}

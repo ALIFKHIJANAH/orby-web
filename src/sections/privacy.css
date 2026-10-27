@@ -1,0 +1,42 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.stat {
+  display: grid;
+  gap: 8px;
+  padding: 26px 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+}
+.stat-n {
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.privacy-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 44px;
+}
+.privacy-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+.privacy-cols p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .stats,
+  .privacy-cols {
+    grid-template-columns: 1fr;
+  }
+}

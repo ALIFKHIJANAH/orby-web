@@ -1,0 +1,8 @@
+name = "orby"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-01"
+
+# The macOS disk images. functions/download.ts serves the current one.
+[[r2_buckets]]
+binding = "RELEASES"
+bucket_name = "orby-releases"

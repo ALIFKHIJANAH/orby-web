@@ -1,0 +1,135 @@
+.meet-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+}
+.meet-orb {
+  display: grid;
+  justify-items: center;
+  gap: 72px;
+  padding: 96px 0 24px;
+}
+.meet-progress {
+  display: flex;
+  gap: 6px;
+}
+.meet-seg {
+  position: relative;
+  width: 34px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.meet-seg > span {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 50%;
+}
+.meet-eyebrow {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.meet-legend ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.meet-legend li + li {
+  border-top: 1px solid var(--stroke);
+}
+.meet-legend li button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 12px;
+  border: 0;
+  background: none;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-3);
+  text-align: left;
+  transition: color 0.25s;
+}
+.meet-legend li button:hover,
+.meet-legend li button.on {
+  color: var(--text);
+}
+.meet-n {
+  font-size: 12px;
+  color: var(--text-3);
+}
+.meet-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.meet-active {
+  position: absolute;
+  inset: 4px 0;
+  z-index: -1;
+  border-radius: 12px;
+  background: var(--card-2);
+}
+.meet-legend li button {
+  isolation: isolate;
+}
+.meet-tools {
+  overflow: hidden;
+}
+.meet-tools .meet-eyebrow {
+  margin-top: 22px;
+}
+.meet-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 2px;
+}
+.meet-chips button {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke-2);
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.meet-chips button:hover {
+  color: var(--text);
+}
+.meet-chips button.on {
+  background: var(--working);
+  border-color: var(--working);
+  color: #06122a;
+}
+
+@media (max-width: 860px) {
+  .meet-stage {
+    grid-template-columns: 1fr;
+  }
+  .meet-orb {
+    padding-top: 72px;
+    gap: 48px;
+  }
+  .meet-legend li button {
+    font-size: 17px;
+    padding: 12px 8px;
+  }
+}

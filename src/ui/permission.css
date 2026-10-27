@@ -1,0 +1,197 @@
+.perm {
+  --red: #ff5c5c;
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px 18px 24px;
+  border-radius: 20px;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f2f2f2;
+  text-align: left;
+  font-size: 14px;
+}
+/* The red rail marks a risky request, as it does in the app. */
+.perm.risky {
+  border-color: rgba(255, 92, 92, 0.35);
+}
+.perm.risky::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--red);
+}
+.perm-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.perm-orb {
+  position: relative;
+  flex: none;
+  margin-top: 2px;
+}
+.perm-badge {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  display: grid;
+}
+.perm-title {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.perm-title strong {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.perm-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: #8f8f8f;
+  font-size: 13px;
+}
+.perm-meta .ellipsis {
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.perm-branch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #c7c7c7;
+}
+.perm-pos {
+  margin-left: auto;
+  flex: none;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+  font-weight: 600;
+  color: #c7c7c7;
+}
+.perm-risk {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 92, 92, 0.14);
+  color: var(--red);
+  font-weight: 700;
+  font-size: 13px;
+}
+.perm-cmd {
+  display: block;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0a0a0a;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #eaeaea;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.risky .perm-cmd {
+  border-color: rgba(255, 92, 92, 0.55);
+}
+.perm-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.perm-terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  color: #a3a3a3;
+}
+.perm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 14px;
+  transition:
+    filter 0.15s,
+    transform 0.15s;
+}
+.perm-btn:hover {
+  filter: brightness(1.12);
+}
+.perm-btn.deny {
+  border-color: rgba(255, 92, 92, 0.55);
+  background: rgba(255, 92, 92, 0.1);
+  color: var(--red);
+}
+.perm-btn.always {
+  background: #262626;
+  color: #f2f2f2;
+}
+.perm-btn.allow {
+  background: #4dd980;
+  color: #072613;
+}
+.perm-btn.allow .kbd {
+  background: rgba(0, 0, 0, 0.15);
+}
+.perm-foot,
+.perm-trust {
+  margin: 0;
+  color: #8f8f8f;
+  font-size: 13px;
+  text-align: right;
+}
+.perm-trust {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  color: #c7c7c7;
+}
+.perm.compact {
+  gap: 10px;
+  padding: 14px 16px 14px 22px;
+}
+.perm.compact .perm-actions {
+  justify-content: flex-end;
+}
+
+@media (max-width: 560px) {
+  .perm-terminal,
+  .perm-btn.always,
+  .perm-foot {
+    display: none;
+  }
+  .perm-actions {
+    justify-content: flex-end;
+  }
+  .perm-trust {
+    justify-content: flex-start;
+  }
+}

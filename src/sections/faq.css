@@ -1,0 +1,39 @@
+.faq {
+  max-width: calc(820px + var(--gutter) * 2);
+}
+.faq-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--stroke);
+}
+.faq-list li {
+  border-bottom: 1px solid var(--stroke);
+}
+.faq-list h3 {
+  margin: 0;
+}
+.faq-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-height: 64px;
+  padding: 18px 4px;
+  border: 0;
+  background: none;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+.faq-list button span {
+  color: var(--text-3);
+  flex: none;
+}
+.faq-list p {
+  margin: 0;
+  padding: 0 48px 22px 4px;
+  color: var(--text-2);
+}

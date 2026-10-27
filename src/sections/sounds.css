@@ -1,0 +1,111 @@
+.sounds {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+}
+.sounds-copy {
+  display: grid;
+  gap: 20px;
+}
+.board {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: #0f0f0f;
+  border: 1px solid var(--stroke);
+}
+.board-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 6px 4px 4px 10px;
+}
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.cue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: #181818;
+  text-align: left;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+.cue:last-child {
+  grid-column: 1 / -1;
+}
+.cue:hover {
+  background: #202020;
+}
+.cue:active {
+  transform: scale(0.98);
+}
+.cue.on {
+  border-color: rgba(255, 158, 51, 0.6);
+  background: rgba(255, 158, 51, 0.08);
+}
+.cue-play {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #262626;
+  color: #c7c7c7;
+}
+.cue.on .cue-play {
+  background: var(--attention);
+  color: #1a1000;
+}
+.cue-text {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+.cue-text strong {
+  font-size: 14px;
+}
+.cue-roll {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+.cue-roll span {
+  display: block;
+  min-width: 6px;
+  border-radius: 2px;
+  transform-origin: bottom;
+}
+.cue-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+@media (max-width: 960px) {
+  .sounds {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .board-grid {
+    grid-template-columns: 1fr;
+  }
+  .board {
+    padding: 16px;
+  }
+}

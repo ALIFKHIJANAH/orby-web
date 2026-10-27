@@ -1,0 +1,147 @@
+.usage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+}
+.usage-copy {
+  display: grid;
+  gap: 20px;
+}
+.usage-panel {
+  display: grid;
+  gap: 14px;
+  padding: 22px 18px 18px;
+  border-radius: var(--radius-lg);
+  background: #000;
+  border: 1px solid var(--stroke);
+  font-size: 14px;
+}
+.usage-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-weight: 600;
+  color: #a3a3a3;
+}
+.usage-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  font-weight: 700;
+}
+.usage-pill.hot {
+  color: var(--error);
+}
+.usage-card {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #141414;
+}
+.usage-label {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8f8f8f;
+}
+.usage-plan + .usage-plan {
+  margin-top: 14px;
+}
+.usage-plan-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.usage-plan-head .logo-badge {
+  border-radius: 6px;
+  box-shadow: none;
+}
+.usage-plan-head strong {
+  font-size: 16px;
+}
+.usage-tier {
+  color: #8f8f8f;
+}
+.usage-updated {
+  margin-left: auto;
+  color: #8f8f8f;
+  font-size: 13px;
+}
+.usage-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 44px 128px;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 0;
+  color: #c7c7c7;
+}
+.usage-track {
+  position: relative;
+  height: 6px;
+  border-radius: 6px;
+  background: #262626;
+}
+.usage-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  transform-origin: 0 50%;
+}
+.usage-mark {
+  position: absolute;
+  left: 85%;
+  top: -2px;
+  bottom: -2px;
+  width: 1px;
+  background: rgba(255, 92, 92, 0.6);
+}
+.usage-pct {
+  text-align: right;
+  font-weight: 700;
+}
+.usage-reset {
+  text-align: right;
+  color: #8f8f8f;
+  font-size: 13px;
+}
+.usage-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+}
+.usage-tokens .usage-label {
+  flex-basis: 100%;
+  margin-bottom: 4px;
+}
+.usage-tokens div {
+  display: grid;
+}
+.usage-tokens span {
+  color: #8f8f8f;
+}
+.usage-tokens strong {
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 960px) {
+  .usage {
+    grid-template-columns: 1fr;
+  }
+  .usage-copy {
+    order: -1;
+  }
+}
+@media (max-width: 560px) {
+  .usage-row {
+    grid-template-columns: 84px minmax(0, 1fr) 40px;
+  }
+  .usage-reset,
+  .usage-updated {
+    display: none;
+  }
+}
