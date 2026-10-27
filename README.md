@@ -16,6 +16,9 @@ npm run build    # type-check + production build into dist/
 
 ## Deploy
 
+Pushing to `main` deploys (`.github/workflows/deploy.yml`, using the repo secrets
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`). To deploy by hand:
+
 ```sh
 npm run build
 npx wrangler pages deploy dist --project-name orby --branch main

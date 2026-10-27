@@ -27,7 +27,7 @@ const TOOLS: { tool: Tool; from: number; status: string }[] = [
 ]
 
 const SHORT = '(max-height: 620px), (min-width: 641px) and (max-height: 720px)'
-const THOUGHT = 'Thinking: the cookie is set after the 302 redirect…'
+const THOUGHT = 'Thinking: cookie set after redirect…'
 
 const REQUEST: Request = {
   id: 'hero',

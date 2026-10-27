@@ -21,6 +21,8 @@
 }
 .hero-notch-inner {
   display: grid;
+  /* Without minmax(0) the column grows to the status text and pushes it past the notch. */
+  grid-template-columns: minmax(0, 1fr);
   justify-items: center;
   gap: 18px;
   padding: 34px 18px 18px;
