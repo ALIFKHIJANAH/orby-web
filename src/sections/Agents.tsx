@@ -19,6 +19,34 @@ const TOOL: Record<AgentId, Tool> = {
   cursor: 'plan',
 }
 
+// Shot and copy rows under the agents; every other row puts the copy first.
+const ROWS = [
+  {
+    title: 'Jump back.',
+    line: 'Click a session to jump to its terminal.',
+    list: 'iTerm2 · Terminal · tmux · Kitty · WezTerm · VS Code · Cursor · Zed',
+    img: '/shots/expanded-sessions.png',
+    alt: 'Sessions grouped by project, each with its agent, status and last line',
+    h: 1011,
+  },
+  {
+    title: 'Start one here.',
+    line: 'Press ⌥⌘N from any app. Pick an agent, a folder and a terminal, then type the first message.',
+    list: 'Orca · Terminal · iTerm',
+    img: '/shots/expanded-new-agent.png',
+    alt: 'The New agent launcher with Claude Code, the acme-web folder, Orca and a first message',
+    h: 495,
+  },
+  {
+    title: 'Subagents, too.',
+    line: 'Each subagent gets its own line under the session that started it. Orca workers sit under their coordinator.',
+    list: 'Claude Code · OpenCode · Orca orchestration',
+    img: '/shots/expanded-subagents.png',
+    alt: 'A coordinator with two Orca workers nested under it, and a session with two subagents',
+    h: 915,
+  },
+]
+
 export function Agents() {
   const [hot, setHot] = useState<number | null>(null)
   const vw = useViewportWidth()
@@ -88,18 +116,20 @@ export function Agents() {
           })}
         </ul>
 
-        <div className="jump">
-          <Reveal className="jump-shot">
-            <div className="shot">
-              <img src="/shots/expanded-sessions.png" alt="Sessions grouped by project, each with its agent, status and last line" loading="lazy" width={1178} height={930} />
-            </div>
-          </Reveal>
-          <Reveal className="jump-copy" delay={0.1}>
-            <h3 className="display jump-title">Jump back.</h3>
-            <p className="lede">Click a session to jump to its terminal.</p>
-            <p className="jump-list mono">iTerm2 · Terminal · tmux · Kitty · WezTerm · VS Code · Cursor · Zed</p>
-          </Reveal>
-        </div>
+        {ROWS.map((r, i) => (
+          <div key={r.title} className={`jump${i % 2 ? ' flip' : ''}`}>
+            <Reveal className="jump-shot">
+              <div className="shot">
+                <img src={r.img} alt={r.alt} loading="lazy" width={1178} height={r.h} />
+              </div>
+            </Reveal>
+            <Reveal className="jump-copy" delay={0.1}>
+              <h3 className="display jump-title">{r.title}</h3>
+              <p className="lede">{r.line}</p>
+              <p className="jump-list mono">{r.list}</p>
+            </Reveal>
+          </div>
+        ))}
       </div>
     </section>
   )
